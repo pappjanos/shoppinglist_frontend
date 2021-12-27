@@ -1,17 +1,17 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import { parse } from "@/util/jwt"
+import { parse } from "@/util/jwt";
 
 Vue.use(VueRouter);
 
 function checkTokenAndUserRole(to, from, next) {
-  const sessionToken = localStorage.getItem('token')
+  const sessionToken = localStorage.getItem("token");
   if (!sessionToken) {
-    return next('/login')
+    return next("/login");
   }
-  const tokenPayload = parse(sessionToken)
-  next()
+  const tokenPayload = parse(sessionToken);
+  next();
 }
 
 const routes = [
@@ -47,7 +47,12 @@ const routes = [
     name: "BlogEntry",
     beforeEnter: checkTokenAndUserRole,
     component: () => import("../views/BlogEntry.vue"),
-    props: true
+    props: true,
+  },
+  {
+    path: "/verify-email",
+    name: "VerifyEmail",
+    component: () => import("../views/VerifyEmail.vue"),
   },
 ];
 

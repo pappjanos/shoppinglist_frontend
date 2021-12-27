@@ -34,6 +34,11 @@ class UserService extends Service {
   register(user) {
     return this.api.post("/register", user);
   }
+
+  sendVerifyEmail(token) {
+    this.api.defaults.headers.common.Authorization = `Bearer ${token}`;
+    return this.api.post("/send-verification-email");
+  }
 }
 
 const userService = new UserService();

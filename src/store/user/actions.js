@@ -24,13 +24,13 @@ export const actions = {
     try {
       const response = await userService.login({ email, password });
       localStorage.setItem("token", response.data.tokens.access.token);
-      const token = parse(response.data.tokens.access.token);
+      //const token = parse(response.data.tokens.access.token);
 
       context.commit("SET_USER", {
-        email: data.user.email,
+        email: response.data.user.email,
         isloggedIn: true,
-        roles: data.user.role,
-        id: data.user.id,
+        roles: response.data.user.role,
+        id: response.data.user.id,
       });
 
       // call setAuthToken for all apis here
@@ -60,7 +60,9 @@ export const actions = {
     };
     try {
       const registerResp = await userService.register(user);
-
+      const sendVerifEmailResp = await userService.sendVerifyEmail(
+        registerResp.data.tokens.access.token
+      );
       setMessage(
         context,
         "Registration succesfull! Please check your email address for validate your account!",
