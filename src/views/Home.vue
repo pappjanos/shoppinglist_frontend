@@ -1,20 +1,5 @@
 <template>
-  <div>
-    <div align="center" v-if="!user.isloggedIn">
-      <v-img
-        lazy-src="img/blog2.png"
-        max-width="600"
-        src="img/blog2.png"
-      ></v-img>
-      <h3 class="mt-5">
-        This is your private blog, register and sign in, then you can start
-        writing your own private diary!
-      </h3>
-    </div>
-    <div v-if="user.isloggedIn">
-      <BlogList />
-    </div>
-  </div>
+  <div>home</div>
 </template>
 
 <script>

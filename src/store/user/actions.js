@@ -1,6 +1,5 @@
 import userService from "../../api/services/userService";
 import dummyService from "../../api/services/dummyService";
-import blogService from "../../api/services/blogService";
 import { parse } from "@/util/jwt";
 import router from "../../router";
 
@@ -35,7 +34,6 @@ export const actions = {
 
       // call setAuthToken for all apis here
       dummyService.setAuthToken(response.data.tokens.access.token);
-      blogService.setAuthToken(response.data.tokens.access.token);
 
       setMessage(context, "Succesfull login!", "green");
       router.push({ name: "Home" }).catch(() => {});

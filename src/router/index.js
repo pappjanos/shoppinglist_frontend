@@ -37,19 +37,6 @@ const routes = [
     component: () => import("../views/Private.vue"),
   },
   {
-    path: "/add-new-entry",
-    name: "AddNewEntry",
-    beforeEnter: checkTokenAndUserRole,
-    component: () => import("../views/AddNewEntry.vue"),
-  },
-  {
-    path: "/blog/:id",
-    name: "BlogEntry",
-    beforeEnter: checkTokenAndUserRole,
-    component: () => import("../views/BlogEntry.vue"),
-    props: true,
-  },
-  {
     path: "/verify-email",
     name: "VerifyEmail",
     component: () => import("../views/VerifyEmail.vue"),
