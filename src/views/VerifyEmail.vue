@@ -1,5 +1,5 @@
 <template>
-  <div>nyüv</div>
+  <div>asdf</div>
 </template>
 
 <script>
